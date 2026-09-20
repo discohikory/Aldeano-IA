@@ -5,7 +5,9 @@
 <meta name="theme-color" content="#04060d">
 <link rel="dns-prefetch" href="https://fonts.gstatic.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2064%2064%27%3E%3Crect%20width%3D%2764%27%20height%3D%2764%27%20rx%3D%2714%27%20fill%3D%27%230e2416%27%2F%3E%3Cpolygon%20points%3D%2732%2C10%2046%2C22%2038%2C52%2026%2C52%2018%2C22%27%20fill%3D%27%2334d399%27%2F%3E%3Cpolyline%20points%3D%2718%2C22%2046%2C22%27%20fill%3D%27none%27%20stroke%3D%27%23065f46%27%20stroke-width%3D%272%27%2F%3E%3Cpolyline%20points%3D%2732%2C10%2032%2C52%27%20fill%3D%27none%27%20stroke%3D%27%23065f46%27%20stroke-width%3D%272%27%2F%3E%3C%2Fsvg%3E">
 <meta name="description" content="Habla con un aldeano de Minecraft que responde con IA: tradeos, regateo y quejas sobre zombis.">
 <title>Aldeano IA — Discohikorybrs</title>
@@ -17,7 +19,7 @@
 *{box-sizing:border-box}html{scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,sans-serif;line-height:1.6}
 .bg-grid{position:fixed;inset:0;z-index:-2;opacity:.14;background-image:linear-gradient(#293354 1px,transparent 1px),linear-gradient(90deg,#293354 1px,transparent 1px);background-size:44px 44px}
-header{max-width:900px;margin:auto;padding:20px 24px;display:flex;align-items:center;gap:16px;position:sticky;top:0;z-index:50;background:rgba(4,6,13,.8);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.06)}
+header{max-width:900px;margin:auto;padding:20px 24px;display:flex;align-items:center;gap:16px;position:sticky;top:0;z-index:50;background:rgba(4,6,13,.8);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.06)}
 .brand{font:700 16px 'Space Grotesk';color:#fff;text-decoration:none}
 .back{color:#b39aff;text-decoration:none;font-size:13px;border:1px solid var(--line);padding:8px 14px;border-radius:8px}
 main{max-width:900px;margin:auto;padding:24px}
@@ -25,7 +27,7 @@ main{max-width:900px;margin:auto;padding:24px}
 .hero-t h1{font:700 clamp(28px,4.5vw,44px) 'Space Grotesk';margin:10px 0;background:linear-gradient(90deg,#fff 25%,#4ade80);-webkit-background-clip:text;background-clip:text;color:transparent}
 .eyebrow{color:#86efac;font-size:10px;font-family:'Press Start 2P',monospace;letter-spacing:2px}
 .lead{color:var(--muted);max-width:620px;margin:0 auto}
-.glass{background:var(--panel);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.08);border-radius:15px;box-shadow:0 8px 32px rgba(0,0,0,.3)}
+.glass{background:var(--panel);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.08);border-radius:15px;box-shadow:0 8px 32px rgba(0,0,0,.3)}
 .card{padding:22px;margin:18px 0}
 .villager{width:76px;height:76px;border-radius:16px;background:linear-gradient(#8a5a2b,#5b3a17);position:relative;flex:none;box-shadow:0 6px 20px rgba(0,0,0,.5)}
 .villager::before{content:"";position:absolute;left:14px;right:14px;top:22px;height:8px;background:#2b1a0c;border-radius:4px}
@@ -34,7 +36,7 @@ main{max-width:900px;margin:auto;padding:24px}
 @keyframes nod{25%{transform:rotate(-3deg)}75%{transform:rotate(3deg)}}
 .who{display:flex;gap:14px;align-items:center}
 .who small{color:var(--muted)}
-.chat{display:flex;flex-direction:column;gap:10px;max-height:420px;overflow-y:auto;padding:8px 2px;margin-top:14px}
+.chat{display:flex;flex-direction:column;gap:10px;max-height:420px;overflow-y:auto;padding:8px 2px;margin-top:14px;-webkit-overflow-scrolling:touch}
 .msg{max-width:85%;padding:10px 14px;border-radius:12px;font-size:14px;white-space:pre-wrap}
 .msg.bot{background:rgba(74,222,128,.1);border:1px solid rgba(74,222,128,.3);align-self:flex-start}
 .msg.user{background:rgba(139,92,246,.14);border:1px solid var(--line);align-self:flex-end}
@@ -54,7 +56,10 @@ h2.st{font:700 20px 'Space Grotesk';margin:0 0 4px}
 footer{text-align:center;padding:34px 20px;color:var(--muted);font-size:12px;border-top:1px solid rgba(255,255,255,.06);margin-top:30px}
 footer strong{color:#fff}
 .visits{margin-top:10px;font-size:13px;color:var(--muted)}
-@media(max-width:700px){.grid2{grid-template-columns:1fr}}
+@media(max-width:700px){.grid2{grid-template-columns:1fr}.chatbar input,#chatIn{font-size:16px}}
+button,.btn,.chip{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+html{-webkit-text-size-adjust:100%}
+select{font-family:inherit;color:#fff;background:rgba(0,0,0,.3);border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:10px;outline:none;font-size:13px}
 </style>
 </head>
 <body>
@@ -85,6 +90,15 @@ footer strong{color:#fff}
       <button class="chip" data-q="Traduce al idioma aldeano: nos vemos luego, amigo">Traduce al aldeano</button>
     </div>
     <div class="chatbar"><input id="chatIn" maxlength="300" placeholder="Escríbele a Boboldo…"><button class="btn primary" id="chatGo" type="button">Enviar</button></div>
+    <div class="rowbtns"><select id="langSel" style="max-width:130px" title="Idioma"><option value="es">🌐 Español</option><option value="en">🌐 English</option></select><button class="chip" id="adultChip" type="button" title="Modo taberna +18">🔞 +18: off</button></div>
+    <div id="ageModal" style="display:none;position:fixed;inset:0;z-index:500;background:rgba(0,0,0,.9);place-items:center;padding:20px">
+      <div class="glass" style="padding:22px;max-width:420px;text-align:center">
+        <h2 class="st">🔞 Modo taberna +18</h2>
+        <p class="muted">Boboldo se suelta: humor de taberna suave e historias de zombis más crudas. Nada sexual explícito, nada ilegal. Solo mayores de edad.</p>
+        <label style="display:block;margin:12px 0;font-size:14px"><input type="checkbox" id="ageChk" style="width:18px;height:18px;vertical-align:middle"> Tengo 18 años o más</label>
+        <div class="rowbtns" style="justify-content:center"><button type="button" class="btn primary" id="ageOk">Entrar 🔓</button><button type="button" class="btn" id="ageNo">Cancelar</button></div>
+      </div>
+    </div>
   </div>
 </main>
 <section style="max-width:900px;margin:6px auto 0;padding:0 24px">
@@ -100,6 +114,37 @@ document.getElementById('projLinks').innerHTML=PROJS.map(p=>`<div><h3 style="mar
 const store={get:(k,f)=>{try{const v=localStorage.getItem(k);return v?JSON.parse(v):f}catch(e){return f}},set:(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
 const SYS=`Eres Boboldo, un aldeano granjero de Minecraft conversando (español neutro con muletillas aldeanas como "¡Hrmm!"). Personalidad: amable pero tacaño, obsesionado con esmeraldas, teme a zombis/pillagers, presume de sus cultivos. Ofrece tradeos justos estilo juego (ej. 20 trigo por 1 esmeralda) y regatea si le ofrecen poco. Máximo 70 palabras por respuesta. Nunca rompas el personaje.`;
 const chatBox=document.getElementById('chatBox'),chatIn=document.getElementById('chatIn'),face=document.getElementById('vFace');
+// ---------- iOS + idiomas + modo taberna +18 ----------
+const IS_IOS=/iPad|iPhone|iPod/.test(navigator.userAgent||"")||(navigator.platform==="MacIntel"&&navigator.maxTouchPoints>1);
+const LANGS={
+  es:{ov:"Responde SIEMPRE en español neutro (con muletillas aldeanas).",ph:"Escríbele a Boboldo…"},
+  en:{ov:"ALWAYS respond in English (with villager-style grunts like 'Hrmm!').",ph:"Write to Boboldo…"}
+};
+let curLang="es";
+try{curLang=localStorage.getItem('aldeano_lang')||'es';if(!LANGS[curLang])curLang='es'}catch(e){}
+let adultOn=false;
+try{adultOn=localStorage.getItem('aldeano_adult')==='1'}catch(e){}
+const ADULT_SYS="\nMODO TABERNA +18: Boboldo está de copas: humor de taberna suave, doble sentido ligero e historias de zombis más crudas. PROHIBIDO: contenido sexual explícito, menores, o cualquier cosa ilegal. Si piden algo prohibido, niégalo en personaje con humor.";
+function sysP(){return SYS+"\n"+LANGS[curLang].ov+(adultOn?ADULT_SYS:"")}
+function withTimeout(p,ms){return Promise.race([p,new Promise((_,rej)=>setTimeout(()=>rej(new Error("timeout")),ms||25000))])}
+async function fetchT(url,ms){const c=new AbortController();const t=setTimeout(()=>c.abort(),ms||25000);try{return await fetch(url,{signal:c.signal})}finally{clearTimeout(t)}}
+function applyLang(){try{localStorage.setItem('aldeano_lang',curLang)}catch(e){}document.getElementById('langSel').value=curLang;chatIn.placeholder=LANGS[curLang].ph}
+document.getElementById('langSel').value=curLang;
+document.getElementById('langSel').addEventListener('change',e=>{curLang=e.target.value in LANGS?e.target.value:'es';applyLang()});
+applyLang();
+function adultRender(){const c=document.getElementById('adultChip');if(c){c.textContent=adultOn?'🔞 +18: ON':'🔞 +18: off'}try{localStorage.setItem('aldeano_adult',adultOn?'1':'0')}catch(e){}}
+document.getElementById('adultChip').addEventListener('click',()=>{
+  if(adultOn){adultOn=false;adultRender();addMsg('Boboldo se calma y vuelve al modo familiar. 🔞','bot');return}
+  document.getElementById('ageModal').style.display='grid';
+});
+document.getElementById('ageNo').addEventListener('click',()=>{document.getElementById('ageModal').style.display='none'});
+document.getElementById('ageOk').addEventListener('click',()=>{
+  if(!document.getElementById('ageChk').checked){alert('Confirma que tienes 18 años o más. 🔞');return}
+  adultOn=true;adultRender();
+  document.getElementById('ageModal').style.display='none';
+  addMsg('¡Hrmm! 🍺 Modo taberna activado: Boboldo se suelta. Nada explícito ni ilegal, que el gólem vigila.','bot');
+});
+adultRender();
 let hist=store.get('aldeano_hist',[]);
 hist.slice(-10).forEach(m=>addMsg(m.t,m.c,true));
 function addMsg(t,c,silent){
@@ -109,8 +154,8 @@ function addMsg(t,c,silent){
 }
 function aiExtract(r){if(!r)return"";if(typeof r==="string")return r;const m=r.message&&r.message.content;if(typeof m==="string")return m;if(Array.isArray(m))return m.map(p=>typeof p==="string"?p:(p.text||"")).join("");return r.text||r.output||""}
 async function aiChat(prompt){
-  try{if(window.puter&&puter.ai&&puter.ai.chat){const t=aiExtract(await puter.ai.chat(prompt));if(t&&t.trim())return{text:t.trim(),via:"Puter.js"}}}catch(e){console.warn(e)}
-  const res=await fetch("https://text.pollinations.ai/"+encodeURIComponent(prompt));
+  try{if(window.puter&&puter.ai&&puter.ai.chat){const t=aiExtract(await withTimeout(puter.ai.chat(prompt),28000));if(t&&t.trim())return{text:t.trim(),via:"Puter.js"}}}catch(e){console.warn(e)}
+  const res=await fetchT("https://text.pollinations.ai/"+encodeURIComponent(prompt),25000);
   if(!res.ok)throw new Error("HTTP "+res.status);
   const t=(await res.text()).trim();if(!t)throw new Error("vacío");
   return{text:t,via:"Pollinations"};
@@ -140,7 +185,7 @@ async function ask(q){
   face.classList.remove('talk');void face.offsetWidth;face.classList.add('talk');
   const ctx=hist.slice(-6).map(m=>(m.c==='user'?'Tú: ':'Boboldo: ')+m.t).join('\n');
   try{
-    const r=await aiChat(SYS+`\n\nConversación:\n${ctx}\nTú: ${q}\nBoboldo:`);
+    const r=await aiChat(sysP()+`\n\nConversación:\n${ctx}\nTú: ${q}\nBoboldo:`);
     typing.textContent=r.text;
     hist.push({t:r.text,c:'bot'});store.set('aldeano_hist',hist.slice(-30));
     hrmm();
