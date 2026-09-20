@@ -128,7 +128,7 @@ const ADULT_SYS="\nMODO TABERNA +18: Boboldo está de copas: humor de taberna su
 function sysP(){return SYS+"\n"+LANGS[curLang].ov+(adultOn?ADULT_SYS:"")}
 function withTimeout(p,ms){return Promise.race([p,new Promise((_,rej)=>setTimeout(()=>rej(new Error("timeout")),ms||25000))])}
 async function fetchT(url,ms){const c=new AbortController();const t=setTimeout(()=>c.abort(),ms||25000);try{return await fetch(url,{signal:c.signal})}finally{clearTimeout(t)}}
-function applyLang(){try{localStorage.setItem('aldeano_lang',curLang)}catch(e){}document.getElementById('langSel').value=curLang;chatIn.placeholder=LANGS[curLang].ph}
+function applyLang(){try{localStorage.setItem('aldeano_lang',curLang)}catch(e){}document.getElementById('langSel').value=curLang;const ci=document.getElementById('chatIn');if(ci)ci.placeholder=LANGS[curLang].ph}
 document.getElementById('langSel').value=curLang;
 document.getElementById('langSel').addEventListener('change',e=>{curLang=e.target.value in LANGS?e.target.value:'es';applyLang()});
 applyLang();
