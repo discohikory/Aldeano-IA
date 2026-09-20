@@ -94,7 +94,7 @@ select{font-family:inherit;color:#fff;background:rgba(0,0,0,.3);border:1px solid
     <div id="ageModal" style="display:none;position:fixed;inset:0;z-index:500;background:rgba(0,0,0,.9);place-items:center;padding:20px">
       <div class="glass" style="padding:22px;max-width:420px;text-align:center">
         <h2 class="st">🔞 Modo taberna +18</h2>
-        <p class="muted">Boboldo se suelta: humor de taberna suave e historias de zombis más crudas. Nada sexual explícito, nada ilegal. Solo mayores de edad.</p>
+        <p class="muted">Boboldo se suelta: humor picante de taberna, piropos atrevidos, romances con fundido a negro y zombis más crudos. Nada sexual explícito, nada ilegal. Solo mayores de edad.</p>
         <label style="display:block;margin:12px 0;font-size:14px"><input type="checkbox" id="ageChk" style="width:18px;height:18px;vertical-align:middle"> Tengo 18 años o más</label>
         <div class="rowbtns" style="justify-content:center"><button type="button" class="btn primary" id="ageOk">Entrar 🔓</button><button type="button" class="btn" id="ageNo">Cancelar</button></div>
       </div>
@@ -124,7 +124,7 @@ let curLang="es";
 try{curLang=localStorage.getItem('aldeano_lang')||'es';if(!LANGS[curLang])curLang='es'}catch(e){}
 let adultOn=false;
 try{adultOn=localStorage.getItem('aldeano_adult')==='1'}catch(e){}
-const ADULT_SYS="\nMODO TABERNA +18: Boboldo está de copas: humor de taberna suave, doble sentido ligero e historias de zombis más crudas. PROHIBIDO: contenido sexual explícito, menores, o cualquier cosa ilegal. Si piden algo prohibido, niégalo en personaje con humor.";
+const ADULT_SYS="\nMODO TABERNA +18 (público adulto): Boboldo está de copas: humor de taberna picante, piropos atrevidos, romances de taberna con fundido a negro (tensión y pasión, sin detallar actos sexuales) e historias de zombis crudas y sangrientas. PROHIBIDO: actos sexuales explícitos o pornografía, menores en contexto romántico/sexual, falta de consentimiento o cualquier cosa ilegal. Si piden algo prohibido, niégalo en personaje con humor.";
 function sysP(){return SYS+"\n"+LANGS[curLang].ov+(adultOn?ADULT_SYS:"")}
 function withTimeout(p,ms){return Promise.race([p,new Promise((_,rej)=>setTimeout(()=>rej(new Error("timeout")),ms||25000))])}
 async function fetchT(url,ms){const c=new AbortController();const t=setTimeout(()=>c.abort(),ms||25000);try{return await fetch(url,{signal:c.signal})}finally{clearTimeout(t)}}
@@ -142,7 +142,7 @@ document.getElementById('ageOk').addEventListener('click',()=>{
   if(!document.getElementById('ageChk').checked){alert('Confirma que tienes 18 años o más. 🔞');return}
   adultOn=true;adultRender();
   document.getElementById('ageModal').style.display='none';
-  addMsg('¡Hrmm! 🍺 Modo taberna activado: Boboldo se suelta. Nada explícito ni ilegal, que el gólem vigila.','bot');
+  addMsg('¡Hrmm! 🍺 Modo taberna activado: piropos, pasión con fundido a negro y zombis crudos. Nada explícito ni ilegal, que el gólem vigila.','bot');
 });
 adultRender();
 let hist=store.get('aldeano_hist',[]);
